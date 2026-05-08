@@ -42,10 +42,9 @@ global-intel-agent/
 
 Project Overview
 
+<img width="1883" height="926" alt="屏幕截图 2026-05-08 150920" src="https://github.com/user-attachments/assets/1312f48e-54bc-47c8-9bbf-9336fd3112a7" />
 
-<img width="1912" height="930" alt="屏幕截图 2026-05-08 150631" src="https://github.com/user-attachments/assets/0024e658-3ed7-42a4-8998-70111f312e85" />
-<img width="1911" height="952" alt="屏幕截图 2026-05-08 150710" src="https://github.com/user-attachments/assets/b2d85711-9ea4-4887-9520-2e7ddaa64f2c" />
-
+<img width="1864" height="909" alt="屏幕截图 2026-05-08 150938" src="https://github.com/user-attachments/assets/bfdeabdd-bfa4-483f-b230-abc1cd1b02e6" />
 
 ## First Milestones
 
