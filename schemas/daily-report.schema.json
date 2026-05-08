@@ -1,0 +1,196 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://global-intel-agent/schemas/daily-report.schema.json",
+  "title": "Daily Global Intelligence Report",
+  "type": "object",
+  "required": [
+    "report_id",
+    "report_date",
+    "generated_at",
+    "scope",
+    "kpis",
+    "top_trends",
+    "risk_alerts",
+    "regional_insights",
+    "methodology"
+  ],
+  "properties": {
+    "report_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "report_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "generated_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "scope": {
+      "type": "object",
+      "required": ["regions", "industries", "languages"],
+      "properties": {
+        "regions": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "type": "string" }
+        },
+        "industries": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "type": "string" }
+        },
+        "languages": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "type": "string" }
+        }
+      },
+      "additionalProperties": false
+    },
+    "kpis": {
+      "type": "object",
+      "required": [
+        "documents_processed",
+        "token_consumed",
+        "summary_accuracy",
+        "trend_coverage",
+        "report_generation_minutes"
+      ],
+      "properties": {
+        "documents_processed": { "type": "integer", "minimum": 0 },
+        "token_consumed": { "type": "integer", "minimum": 0 },
+        "summary_accuracy": { "type": "number", "minimum": 0, "maximum": 1 },
+        "trend_coverage": { "type": "number", "minimum": 0, "maximum": 1 },
+        "report_generation_minutes": { "type": "number", "minimum": 0 },
+        "cache_hit_rate": { "type": "number", "minimum": 0, "maximum": 1 },
+        "cost_per_1k_docs": { "type": "number", "minimum": 0 }
+      },
+      "additionalProperties": false
+    },
+    "executive_summary": {
+      "type": "string"
+    },
+    "top_trends": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": [
+          "rank",
+          "cluster_id",
+          "title",
+          "why_it_matters",
+          "sentiment",
+          "momentum_score",
+          "evidence_doc_ids"
+        ],
+        "properties": {
+          "rank": { "type": "integer", "minimum": 1 },
+          "cluster_id": { "type": "string" },
+          "title": { "type": "string" },
+          "why_it_matters": { "type": "string" },
+          "sentiment": {
+            "type": "string",
+            "enum": ["positive", "neutral", "negative", "mixed"]
+          },
+          "momentum_score": { "type": "number" },
+          "risk_level": {
+            "type": "string",
+            "enum": ["low", "medium", "high", "critical"]
+          },
+          "regions": {
+            "type": "array",
+            "items": { "type": "string" }
+          },
+          "evidence_doc_ids": {
+            "type": "array",
+            "minItems": 1,
+            "items": { "type": "string" }
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "risk_alerts": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["alert_id", "severity", "title", "description", "recommended_actions"],
+        "properties": {
+          "alert_id": { "type": "string" },
+          "severity": {
+            "type": "string",
+            "enum": ["medium", "high", "critical"]
+          },
+          "title": { "type": "string" },
+          "description": { "type": "string" },
+          "related_cluster_ids": {
+            "type": "array",
+            "items": { "type": "string" }
+          },
+          "recommended_actions": {
+            "type": "array",
+            "minItems": 1,
+            "items": { "type": "string" }
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "regional_insights": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["region", "key_signals"],
+        "properties": {
+          "region": { "type": "string" },
+          "key_signals": {
+            "type": "array",
+            "minItems": 1,
+            "items": { "type": "string" }
+          },
+          "sentiment_shift": { "type": "number" }
+        },
+        "additionalProperties": false
+      }
+    },
+    "industry_insights": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["industry", "highlights"],
+        "properties": {
+          "industry": { "type": "string" },
+          "highlights": {
+            "type": "array",
+            "minItems": 1,
+            "items": { "type": "string" }
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "methodology": {
+      "type": "object",
+      "required": ["data_sources", "model_stack", "notes"],
+      "properties": {
+        "data_sources": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "type": "string" }
+        },
+        "model_stack": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "type": "string" }
+        },
+        "notes": { "type": "string" }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}

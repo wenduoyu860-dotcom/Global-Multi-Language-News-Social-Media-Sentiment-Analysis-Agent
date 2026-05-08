@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GlobalPulse AI - 舆情智能分析</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="bg-glow"></div>
+    <header class="topbar">
+      <div class="brand">
+        <div class="logo">GP</div>
+        <div>
+          <h1>GlobalPulse AI</h1>
+          <p>全球多语言新闻与社交舆情智能分析</p>
+        </div>
+      </div>
+      <div class="top-actions">
+        <span id="clock"></span>
+        <button id="refreshBtn" class="btn-primary">刷新数据</button>
+      </div>
+    </header>
+
+    <main class="container">
+      <section class="filters card">
+        <h2>实时筛选</h2>
+        <div class="filter-grid">
+          <label>
+            地区
+            <select id="regionFilter">
+              <option value="all">全部</option>
+              <option value="亚太">亚太</option>
+              <option value="欧美">欧美</option>
+              <option value="中东非">中东非</option>
+            </select>
+          </label>
+          <label>
+            行业
+            <select id="industryFilter">
+              <option value="all">全部</option>
+              <option value="科技">科技</option>
+              <option value="金融">金融</option>
+              <option value="能源">能源</option>
+              <option value="消费">消费</option>
+            </select>
+          </label>
+          <label>
+            情绪
+            <select id="sentimentFilter">
+              <option value="all">全部</option>
+              <option value="positive">正向</option>
+              <option value="neutral">中性</option>
+              <option value="negative">负向</option>
+            </select>
+          </label>
+        </div>
+      </section>
+
+      <section class="kpi-grid">
+        <article class="card kpi">
+          <h3>今日处理文本</h3>
+          <p id="kpiDocs" class="kpi-value">0</p>
+          <small>目标: >1,000,000</small>
+        </article>
+        <article class="card kpi">
+          <h3>Token 消耗</h3>
+          <p id="kpiToken" class="kpi-value">0</p>
+          <small>动态优化中</small>
+        </article>
+        <article class="card kpi">
+          <h3>摘要准确率</h3>
+          <p id="kpiAccuracy" class="kpi-value">0%</p>
+          <small>目标: >92%</small>
+        </article>
+        <article class="card kpi">
+          <h3>报告生成时长</h3>
+          <p id="kpiTime" class="kpi-value">0 min</p>
+          <small>目标: <30 min</small>
+        </article>
+      </section>
+
+      <section class="content-grid">
+        <article class="card trend-card">
+          <div class="card-head">
+            <h2>7日趋势热力</h2>
+            <span class="pill">实时模拟</span>
+          </div>
+          <canvas id="trendCanvas" width="900" height="300"></canvas>
+        </article>
+
+        <article class="card">
+          <div class="card-head">
+            <h2>风险预警</h2>
+            <span id="riskCount" class="pill danger">0</span>
+          </div>
+          <ul id="riskList" class="risk-list"></ul>
+        </article>
+      </section>
+
+      <section class="content-grid">
+        <article class="card">
+          <div class="card-head">
+            <h2>热点话题</h2>
+            <span class="pill">Top 6</span>
+          </div>
+          <div id="topicList" class="topic-list"></div>
+        </article>
+
+        <article class="card">
+          <div class="card-head">
+            <h2>数据流状态</h2>
+            <span class="pill success">健康</span>
+          </div>
+          <div id="pipeline" class="pipeline"></div>
+        </article>
+      </section>
+    </main>
+
+    <script src="./app.js"></script>
+  </body>
+</html>

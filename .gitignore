@@ -1,0 +1,33 @@
+# Node
+node_modules/
+dist/
+build/
+coverage/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.pytest_cache/
+.mypy_cache/
+
+# Local generated artifacts
+output/
+
+# Cursor / IDE
+.cursor/
+.idea/
+.vscode/
+*.code-workspace
+
+# Env / secrets
+.env
+.env.*
+secrets.*
+credentials.*
+
