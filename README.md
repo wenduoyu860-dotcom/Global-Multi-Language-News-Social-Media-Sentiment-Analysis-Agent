@@ -40,6 +40,13 @@ global-intel-agent/
    └─ daily-report.template.md     # Human-readable report template
 ```
 
+Project Overview
+
+
+<img width="1912" height="930" alt="屏幕截图 2026-05-08 150631" src="https://github.com/user-attachments/assets/0024e658-3ed7-42a4-8998-70111f312e85" />
+<img width="1911" height="952" alt="屏幕截图 2026-05-08 150710" src="https://github.com/user-attachments/assets/b2d85711-9ea4-4887-9520-2e7ddaa64f2c" />
+
+
 ## First Milestones
 
 1. Build `source-connectors`, `ingest-router`, and `text-preprocessor` for reliable ingest.
